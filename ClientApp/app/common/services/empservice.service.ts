@@ -27,10 +27,27 @@ export class EmployeeService{
             .map((response: Response) => response.json())  
             .catch(this.errorHandler)  
     } 
-
+    saveEmployee(employee) {  
+        return this.http.post(this.myAppUrl + 'api/Employee/Create', employee)  
+            .map((response: Response) => response.json())  
+            .catch(this.errorHandler)  
+    }  
+  
+    updateEmployee(employee) {  
+        return this.http.put(this.myAppUrl + 'api/Employee/Edit', employee)  
+            .map((response: Response) => response.json())  
+            .catch(this.errorHandler);  
+    }  
+  
+    deleteEmployee(id) {  
+        return this.http.delete(this.myAppUrl + "api/Employee/Delete/" + id)  
+            .map((response: Response) => response.json())  
+            .catch(this.errorHandler);  
+    }  
+  
     errorHandler(error: Response) {  
         console.log(error);  
         return Observable.throw(error);  
-    }  
+    }   
 
 }
