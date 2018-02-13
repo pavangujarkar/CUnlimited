@@ -12,13 +12,13 @@ import { EmployeeService } from '../../common/services/empservice.service';
 
 export class EmpTodayAttendanceComponent implements OnInit{
     ngOnInit(): void {
-        this._employeeService.getEmployees().subscribe(
-            data => this.empData= data  
+        this.employeeService.getEmployees().subscribe(
+            data => this.empData= data
         ) 
     }
     public empData: EmployeeData[] = [];
 
-    constructor(private http: Http, private router: Router, private _employeeService: EmployeeService){
+    constructor(private http: Http, private router: Router, private employeeService: EmployeeService){
         
     }
 
