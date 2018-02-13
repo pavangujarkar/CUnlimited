@@ -11,6 +11,8 @@ import { EmployeeService } from '../../common/services/empservice.service';
 })
 
 export class EmpTodayAttendanceComponent implements OnInit{
+public date: Date = new Date();
+
     ngOnInit(): void {
         this.employeeService.getEmployees().subscribe(
             data => this.empData= data
