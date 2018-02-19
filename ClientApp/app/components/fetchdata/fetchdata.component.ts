@@ -44,8 +44,11 @@ interface WeatherForecast {
 
 interface EmployeeData {  
     id: number;  
-    name: string;  
-    gender: string;  
-    department: string;  
+    firstName: string;
+    lastName: string; 
+    genderId: number;
+    genderName: string;  
+    departmentId: number;
+    department: string;
     city: string;  
 }

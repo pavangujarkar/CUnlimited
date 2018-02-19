@@ -15,7 +15,7 @@ namespace CUnlimited.Controllers
   
         [HttpGet]  
         [Route("api/Employee/Index")]  
-        public IEnumerable<Employee> Index()  
+        public IEnumerable<EmployeeDetails> Index()  
         {  
             return objemployee.GetAllEmployees();  
         }  
