@@ -10,14 +10,14 @@ namespace CUnlimited.Model
 {
 public class EmployeeDataAccessLayer  
     {  
-        string connectionString = "Put Your Connection string here";  
-  
+        //string connectionString = "DefaultConnection";  
+  string connectionString = "Data Source=LAPTOP-8OC40J3I;Initial Catalog=PayRoll;User ID=vivek;Password=vivek123";
         //To View all employees details  
-        public IEnumerable<Employee> GetAllEmployees()  
+        public IEnumerable<EmployeeDetails> GetAllEmployees()  
         {  
             try  
             {  
-                List<Employee> lstemployee = new List<Employee>();  
+                List<EmployeeDetails> lstemployee = new List<EmployeeDetails>();  
   
                 using (SqlConnection con = new SqlConnection(connectionString))  
                 {  
@@ -29,13 +29,15 @@ public class EmployeeDataAccessLayer
   
                     while (rdr.Read())  
                     {  
-                        Employee employee = new Employee();  
+                        EmployeeDetails employee = new EmployeeDetails();  
   
                         employee.ID = Convert.ToInt32(rdr["EmployeeID"]);  
-                        employee.Name = rdr["Name"].ToString();  
-                        employee.Gender = rdr["Gender"].ToString();  
-                        employee.Department = rdr["Department"].ToString();  
-                        employee.City = rdr["City"].ToString();  
+                        employee.FirstName = rdr["FirstName"].ToString(); 
+                        employee.LastName = rdr["LastName"].ToString(); 
+                        employee.GenderId = Convert.ToInt32(rdr["GenderId"]);
+                        employee.GenderName = rdr["GenderName"].ToString(); 
+                        employee.DepartmentId = Convert.ToInt32(rdr["DepartmentId"]); 
+                        employee.Department = rdr["DepartmentName"].ToString();
   
                         lstemployee.Add(employee);  
                     }  
